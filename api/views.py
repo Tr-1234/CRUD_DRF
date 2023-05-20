@@ -13,8 +13,6 @@ def student_detail(request, pk):
     stu = Student.objects.get(id = pk)
     # print(stu)
     serializer = StudentSerializer(stu)
-    # print(serializer)
-    # print(serializer.data)
     json_data = JSONRenderer().render(serializer.data)
     # print(json_data)
     return HttpResponse(json_data, content_type='application/json')
